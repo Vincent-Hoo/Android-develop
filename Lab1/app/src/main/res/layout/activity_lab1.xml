@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.vincentho.lab1.Lab1"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+
+
+    <TextView
+        android:id="@+id/headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="中山大学学生信息系统"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ImageView
+        android:id="@+id/sysuicon"
+        android:layout_width="112dp"
+        android:layout_height="127dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headline"
+        app:srcCompat="@drawable/sysu"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <EditText
+        android:id="@+id/inputID"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:hint="请输入学号"
+        android:inputType="number"
+        android:textColorHighlight="@color/colorAccent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/sysuicon" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="268dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/inputID" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="学号： "
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/inputID"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintTop_toTopOf="@+id/inputID"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/inputID"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="密码： "
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/inputPassword"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintTop_toTopOf="@+id/inputPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/inputPassword"
+        android:layout_marginBottom="8dp" />
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/radioGroup"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword">
+
+        <RadioButton
+            android:id="@+id/id1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学生"
+            android:textSize="18sp"
+            android:checked="true"
+            android:layout_marginRight="10dp"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="332dp" />
+
+        <RadioButton
+            android:id="@+id/id2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="教职工"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="332dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录"
+
+        android:textSize="18sp"
+        android:background="@drawable/shape"
+        android:layout_marginLeft="85dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/signup"
+        android:layout_marginRight="10dp"
+        app:layout_constraintHorizontal_bias="0.831"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="注册"
+        android:textSize="18sp"
+        android:background="@drawable/shape"
+        app:layout_constraintLeft_toRightOf="@id/login"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="85dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.584"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</android.support.constraint.ConstraintLayout>
