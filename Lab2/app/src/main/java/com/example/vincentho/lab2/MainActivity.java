@@ -27,13 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        choosePic = new AlertDialog.Builder(this);
-        ImageView image = (ImageView) findViewById(R.id.sysuicon);
+
+
         final RadioButton student = (RadioButton) findViewById(R.id.id1);
         final RadioButton teacher = (RadioButton) findViewById(R.id.id2);
         final RadioGroup chooseID = (RadioGroup) findViewById(R.id.radioGroup);
         p1 = new String[]{"拍摄", "从相册选择"};
 
+        ImageView image = (ImageView) findViewById(R.id.sysuicon);
+        choosePic = new AlertDialog.Builder(this);
         image.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -61,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedID){
                 if(checkedID == R.id.id1){
-                    //Toast.makeText(getApplication(), "你选择了学生", Toast.LENGTH_SHORT).show();
                     Snackbar.make(chooseID, " 你选择了学生", Snackbar.LENGTH_LONG)
                             .setAction("确定", new View.OnClickListener(){
                                 @Override
@@ -71,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                             }).show();
                 }
                 else if(checkedID == R.id.id2){
-                    //Toast.makeText(getApplication(), "你选择了教师", Toast.LENGTH_SHORT).show();
                     Snackbar.make(chooseID, " 你选择了教师", Snackbar.LENGTH_LONG)
                             .setAction("确定", new View.OnClickListener(){
                                 @Override
