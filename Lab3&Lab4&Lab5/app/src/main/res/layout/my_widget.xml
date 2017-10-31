@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/widget_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/shoplist"
+        android:scaleType="fitStart"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+    />
+
+    <TextView
+        android:id="@+id/widget_text"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        android:layout_gravity="center_vertical"
+        android:text="乜嗨都无"
+        android:background="#00000000"
+        android:textColor="@color/grey2"
+        android:textSize="17sp" />
+
+</LinearLayout>
