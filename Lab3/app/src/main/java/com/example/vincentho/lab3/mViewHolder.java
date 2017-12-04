@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 
 
 public class mViewHolder extends RecyclerView.ViewHolder {
-    private SparseArray<View> mViews; // 每一项View里面的子View，比如一些textView之类的
-    private View mConvertView; // 每一项list_item的View，相当于每一项的layout
+        private SparseArray<View> mViews; // 每一项View里面的子View，比如一些textView之类的
+        private View mConvertView; // 每一项list_item的View，相当于每一项的layout
 
     public mViewHolder(Context context, View itemView, ViewGroup parent)
     {

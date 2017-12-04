@@ -25,12 +25,7 @@ public class MyWidget extends AppWidgetProvider {
                                 int appWidgetId) {
 /*
         CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.my_widget);
-        views.setTextViewText(R.id.widget_text, widgetText);
 
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
 */
     }
 
@@ -39,30 +34,14 @@ public class MyWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
-        /*
-        for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
-        }
-        */
 
         my_remoteview = new RemoteViews(context.getPackageName(), R.layout.my_widget);
 
+        Intent intent = new Intent(context, MainActivity.class);
+        pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        my_remoteview.setOnClickPendingIntent(R.id.widget_text, pi);
 
-
-            Intent intent = new Intent(context, MainActivity.class);
-            pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            my_remoteview.setOnClickPendingIntent(R.id.widget_text, pi);
-
-
-            /*
-            Intent widget_jumpToDetail = new Intent("widget_to_detail");
-            PendingIntent pi2 = PendingIntent.getBroadcast(context, 0, widget_jumpToDetail, PendingIntent.FLAG_UPDATE_CURRENT);
-            my_remoteview.setOnClickPendingIntent(R.id.widget_text, pi2);
-*/
-
-
-            Toast.makeText(context, "进来", Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(context, "进来", Toast.LENGTH_SHORT).show();
 
         ComponentName me = new ComponentName(context, MyWidget.class);
         appWidgetManager.updateAppWidget(me, my_remoteview);
@@ -96,10 +75,11 @@ public class MyWidget extends AppWidgetProvider {
             jumpDetail.putExtra("pos", p);
             jumpDetail.putExtra("source", "widget");
             pi = PendingIntent.getActivity(context, 0, jumpDetail, PendingIntent.FLAG_UPDATE_CURRENT);
+            my_remoteview = new RemoteViews(context.getPackageName(), R.layout.my_widget);
             my_remoteview.setOnClickPendingIntent(R.id.widget_text, pi);
 
-            my_remoteview.setTextViewText(R.id.widget_text, s);
 
+            my_remoteview.setTextViewText(R.id.widget_text, s);
 
             if (p == 0)
                 my_remoteview.setImageViewResource(R.id.widget_icon, R.drawable.p1);
@@ -130,7 +110,7 @@ public class MyWidget extends AppWidgetProvider {
             int p = intent.getIntExtra("pos", 0);
             String name = intent.getStringExtra("name");
             String s = name + "已被加到购物车";
-
+            my_remoteview = new RemoteViews(context.getPackageName(), R.layout.my_widget);
             my_remoteview.setTextViewText(R.id.widget_text, s);
 
             if (p == 0)
@@ -157,18 +137,7 @@ public class MyWidget extends AppWidgetProvider {
             ComponentName me = new ComponentName(context, MyWidget.class);
             widgetManager.updateAppWidget(me, my_remoteview);
         }
-        else if(intent.getAction().equals("widget_to_detail")){
-            Toast.makeText(context, "出来吧皮卡丘", Toast.LENGTH_SHORT).show();
 
-
-            Intent jumpDetail = new Intent(context, detail.class);
-            jumpDetail.putExtra("name", "屎坑");
-            jumpDetail.putExtra("price", "100蚊");
-            jumpDetail.putExtra("info", "价值连城");
-            jumpDetail.putExtra("pos", 3);
-            context.startService(jumpDetail);
-
-        }
     }
 }
 

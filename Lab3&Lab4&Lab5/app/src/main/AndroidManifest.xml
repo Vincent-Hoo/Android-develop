@@ -35,7 +35,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="initiate" />
                 <action android:name="addedShoplist" />
-                <action android:name="widget_to_detail" />
             </intent-filter>
 
             <meta-data
